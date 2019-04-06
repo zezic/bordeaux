@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Welcome to the Bordeaux Text Board</h1>
+<div class='header'>
+  <h1 class='welcome-msg'>Welcome to the Bordeaux Text Board</h1>
+</div>
 
 <section class='posts'>
   {% for post in thread.posts %}
-    <p>{{ post.datetime | format_datetime }}: {{ post.text }}</p>
+    <div class='post'>
+      <span class='time'>{{ post.datetime | format_datetime }}</span>
+      <span class='text'>{{ post.text }}</span>
+    </div>
   {% endfor %}
 </section>
 
-<form action='/thread' method='post'>
-  <textarea name='text'></textarea>
+<form action='/thread' method='post' class='post-form'>
+  <textarea name='text' placeholder='your message'></textarea>
   <button type='submit'>Post</button>
 </form>
 

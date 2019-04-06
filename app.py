@@ -42,10 +42,10 @@ class ThreadOperation(HTTPEndpoint):
         form = await request.form()
         text = form['text']
         new_post = thread.add_post(text)
-        await notifier.notify_listeners('{}: {}'.format(
-            format_datetime(new_post.datetime),
-            new_post.text
-        ))
+        await notifier.notify_listeners({
+            'datetime': format_datetime(new_post.datetime),
+            'text': new_post.text
+        })
         return RedirectResponse(url='/')
 
 @app.websocket_route('/ws')

@@ -8,6 +8,6 @@ class Notifier():
     def remove_listener(self, websocket):
         self.listeners.remove(websocket)
 
-    async def notify_listeners(self, text):
+    async def notify_listeners(self, data):
         for websocket in self.listeners:
-            await websocket.send_text(text)
+            await websocket.send_json(data)
