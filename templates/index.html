@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Welcome to the Bordeaux Text Board</h1>
+
+<section class='posts'>
+  {% for post in thread.posts %}
+    <p>{{ post.datetime | format_datetime }}: {{ post.text }}</p>
+  {% endfor %}
+</section>
+
+<form action='/thread' method='post'>
+  <textarea name='text'></textarea>
+  <button type='submit'>Post</button>
+</form>
+
+<script src='{{ url_for("static", path="/js/client.js") }}'></script>
+
+{% endblock %}
