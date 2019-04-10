@@ -89,18 +89,28 @@ class NewBoardEndpoint(HTTPEndpoint):
     async def post(self, request):
         form = await request.form()
         try:
-            markdown = form['markdown']
-            slug = form['slug']
-            title = form['title']
+            markdown = form['markdown'].strip()
+            slug = form['slug'].strip().lower()
+            title = form['title'].strip()
         except KeyError:
             return PlainTextResponse(
                 'Please, provide the "markdown", "slug" and "title".',
                 status_code=400
             )
+        if len(markdown) == 0 or len(slug) == 0 or len(title) == 0:
+            return PlainTextResponse(
+                '"markdown", "slug" and "title" should not be empty.',
+                status_code=400
+            )
+        if slug[:2] == '0x':
+            return PlainTextResponse(
+                '"slug" should not start from "0x".',
+                status_code=400
+            )
         board = await Board.objects.filter(slug=slug).exists() or await Board.objects.filter(title=title).exists()
         if board:
             return PlainTextResponse(
-                'There is already "{}" board with slug "{}".'.format(board.title, board.slug),
+                'There is already board with slug "{}" called "{}".'.format(board.slug, board.title),
                 status_code=409
             )
         board = await Board.objects.create(
