@@ -1,0 +1,27 @@
+<form class='writer' method='post'>
+  {% if not board %}
+  <div class='new-board'>
+    <input type='text' name='slug' placeholder='Slug' maxlength='4' autofocus>
+    <input type='text' name='title' placeholder='Board title' maxlength='24'>
+  </div>
+  {% endif %}
+  <textarea name='markdown' placeholder='{% if board %}Your {% if thread %}reply{% else %}post{% endif %}...{% else %}Write the first post to be on a new board!{% endif %}'{% if board and not thread %}autofocus{% endif %}></textarea>
+  <div class='operations'>
+    {% if not thread %}
+      <a href='javascript:history.back()' class='link-button contrast'>Back</a>
+    {% endif %}
+    {% if not board %}
+      <button type='submit' class='link-button key'>Create Board & Post</button>
+    {% else %}
+      <button type='submit' class='link-button key'>Post</button>
+    {% endif %}
+  </div>
+</form>
+<script>
+  function resizeTextarea(ev) {
+      this.style.height = 'auto'
+      this.style.height = this.scrollHeight + 'px'
+  }
+  var te = document.querySelector('textarea')
+  te.addEventListener('input', resizeTextarea)
+</script>

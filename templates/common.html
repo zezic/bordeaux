@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel='stylesheet' href='{{ url_for("static", path="/css/common-layout.css") }}'>
+<link rel='stylesheet' href='{{ url_for("static", path="/css/board.css") }}'>
+<link rel='stylesheet' href='{{ url_for("static", path="/css/thread.css") }}'>
+<link rel='stylesheet' href='{{ url_for("static", path="/css/post.css") }}'>
+<link rel='stylesheet' href='{{ url_for("static", path="/css/writer.css") }}'>
+{% if request.cookies.get('theme') %}
+  <link rel='stylesheet' href='{{ url_for("static", path="/js/lib/highlight/styles/{}.css".format(request.cookies.get("theme"))) }}'>
+{% else %}
+  <link rel='stylesheet' href='{{ url_for("static", path="/js/lib/highlight/styles/ascetic.css") }}'>
+{% endif %}
+{% endblock %}
+
+{% block body %}
+<div class='common-layout'>
+  <div class='top'>
+    <div class='container'>
+      <div class='header'>
+        <div class='logo-cnt'><div class='v-flex'>
+          <a href='/' class='logo'>BRDX</a>
+        </div></div>
+        <div class='night-mode-cnt'><div class='v-flex'>
+          <form action='/toggle-theme' method='post'>
+            <button type='submit' class='night-mode'><span>Night Mode</span><div class='switch'></div></button>
+          </form>
+        </div></div>
+        {% block header %}{% endblock %}
+      </div>
+      {% block subhead %}{% endblock %}
+    </div>
+  </div>
+  <div class='middle'>
+    {% block content %}{% endblock %}
+  </div>
+</div>
+<script src='{{ url_for("static", path="/js/lib/highlight/highlight.pack.js") }}'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

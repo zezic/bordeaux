@@ -1,0 +1,11 @@
+<svg class="icon feather" width="46" height="16" version="1.1" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <path d="m17 1h25c1.662 0 3 1.338 3 3v8c0 1.662-1.339 2.934-3 3h-25l-7-7.062z"/>
+  <path d="m45 8h-44"/>
+  <g>
+   <path d="m20 7.938 7-6.937"/>
+   <path d="m31 7.938 7-6.937"/>
+   <path d="m33 15-7-7.062"/>
+  </g>
+ </g>
+</svg>

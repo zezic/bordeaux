@@ -1,0 +1,49 @@
+.writer textarea {
+  background-color: rgb(var(--contrast));
+  color: rgb(var(--contrast-fg));
+  border: 0px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  padding: 1.2em 1.5em;
+  width: 100%;
+  resize: none;
+  /* overflow-y: hidden; */
+}
+.writer .operations {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -5px;
+  margin-right: -5px;
+  flex-wrap: wrap;
+}
+.writer .operations > * {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.writer .new-board {
+  margin-bottom: 10px;
+  font-size: 0;
+  display: flex;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.writer .new-board > input {
+  background-color: rgb(var(--contrast));
+  color: rgb(var(--contrast-fg));
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 34px;
+  padding: 0 1.5em;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.writer .new-board input[name='slug'] {
+  max-width: 5em;
+  text-align: center;
+}
+.writer .new-board input[name='title'] {
+  min-width: 0;
+}

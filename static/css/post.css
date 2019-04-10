@@ -1,0 +1,127 @@
+.post {
+  border-radius: 5px;
+  background-color: rgb(var(--bg));
+  padding: 1.4em 1.5em 1.2em;
+  font-size: 14px;
+}
+.post:not(:last-child) {
+  margin-bottom: 1em;
+}
+.post:target {
+  box-shadow: inset 0 0 0 2px rgb(var(--key));
+}
+.post .head {
+  font-family: 'Anka/Coder';
+  font-size: 1.1em;
+  display: flex;
+  line-height: 1em;
+  flex-wrap: wrap;
+}
+.post .head > * {
+  margin-bottom: .5em;
+}
+.post .head .datetime {
+  color: rgba(var(--fg), .5);
+  margin-right: 20px;
+  white-space: nowrap;
+}
+.post .head .id {
+  margin-left: auto;
+  color: rgba(var(--fg), .5);
+  text-decoration: none;
+}
+.post .head .id:hover {
+  color: rgb(var(--key));
+}
+.post .head .id span {
+  color: rgba(var(--fg), .25);
+}
+
+.post .body {
+  font-size: 1em;
+  color: rgb(var(--fg));
+}
+.post .body .p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.post .body .p:not(:last-child) {
+  margin-bottom: .5em;
+}
+.post .body > .quote + *:not(.quote) {
+  margin-top: .5em;
+}
+.post .body a {
+  color: rgb(var(--key));
+  text-decoration: none;
+}
+.post .body a:hover {
+  text-decoration: underline;
+}
+.post .body .quote span:first-child {
+  display: inline-block;
+  margin-right: .5em;
+  background-color: rgba(var(--fg), .125);
+  width: .3em;
+  color: rgba(var(--fg), 0);
+}
+.post .body .quote {
+  margin: 0;
+  color: rgba(var(--fg), .5);
+  font-style: italic;
+}
+.post .body .quote span:first-child + * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.post .body h1:first-child,
+.post .body h2:first-child,
+.post .body h3:first-child,
+.post .body h4:first-child,
+.post .body h5:first-child,
+.post .body h6:first-child {
+  margin-top: 0;
+}
+
+.post .body hr {
+  border: 0;
+  border-top: 1px solid rgba(var(--fg), .125);
+}
+
+.post .body pre {
+  background-color: rgb(var(--code-bg));
+  padding: 1em 1.45em;
+  margin: 0;
+}
+.post .body pre:not(:last-child) {
+  margin-bottom: 1em;
+}
+.post .body pre code {
+  font-family: 'Fantasque Sans Mono';
+  border-radius: 5px;
+  font-size: 1.1em;
+  line-height: 1.15;
+}
+.post .body pre code.hljs {
+	line-height: 1.182; /* ohhh... */
+}
+.thread .post pre:first-child {
+  margin-top: .5em;
+}
+
+.post .p > code {
+  background-color: rgb(var(--code-bg));
+  font-family: 'Fantasque Sans Mono';
+  padding: 0 .3em;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.latest-posts .post {
+  font-size: 12px;
+}
+
+.common-layout .top .post {
+  padding: 0 0 1.75em;
+}

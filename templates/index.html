@@ -1,24 +1,36 @@
 {% extends 'base.html' %}
-{% block content %}
 
-<div class='header'>
-  <h1 class='welcome-msg'>Welcome to the Bordeaux Text Board</h1>
-</div>
+{% block css %}
+<link rel='stylesheet' href='{{ url_for("static", path="/css/index.css") }}'>
+{% endblock %}
 
-<section class='posts'>
-  {% for post in thread.posts %}
-    <div class='post'>
-      <span class='time'>{{ post.datetime | format_datetime }}</span>
-      <span class='text'>{{ post.text }}</span>
+{% block body %}
+
+<div class='index-layout'>
+  <div class='top'></div>
+  <div class='middle'>
+    <div class='container spacy'>
+      {% include 'header.html' %}
+      {% if boards | length > 0 %}
+        <ul class='board-list'>
+          {% for board in boards %}
+            <li><a href='/{{ board.slug }}'>
+              <span>{{ board.slug }}</span> {{ board.title }}
+            </a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class='no-boards'>Congratulations! There is no any boards yet. Be first to create one!</div>
+      {% endif %}
     </div>
-  {% endfor %}
-</section>
-
-<form action='/thread' method='post' class='post-form'>
-  <textarea name='text' placeholder='your message'></textarea>
-  <button type='submit'>Post</button>
-</form>
-
-<script src='{{ url_for("static", path="/js/client.js") }}'></script>
+  </div>
+  <div class='bottom'>
+    <div class='new-board-option'>
+      {% if boards %}<span>...or</span>{% endif %}
+      <a href='/create' class='link-button contrast'>New Board</a>
+    </div>
+    {% include 'footer.html' %}
+  </div>
+</div>
 
 {% endblock %}

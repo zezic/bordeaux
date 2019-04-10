@@ -1,24 +1,26 @@
-const ws = new WebSocket('ws://' + location.host + '/ws')
+const threadSlug = document.querySelector('.thread').dataset.slug
+const ws = new WebSocket('ws://' + location.host + '/ws/' + threadSlug)
 
 ws.onmessage = function (event) {
-  const postsElement = document.getElementsByClassName('posts')[0]
-
-  const postElement = document.createElement('div')
-  postElement.classList.add('post')
+  console.log(event)
+  if (!('content' in document.createElement('template'))) {
+    return
+  }
 
   const data = JSON.parse(event.data)
+  const template = document.querySelector('#post-template');
 
-  const time = document.createElement('span')
-  time.classList.add('time')
-  time.appendChild(document.createTextNode(data.datetime))
-  postElement.appendChild(time)
+  const posts = document.querySelector('.posts');
 
-  postElement.appendChild(document.createTextNode(' '))
+  const clone = document.importNode(template.content, true);
+  clone.querySelector('.datetime').textContent = data.datetime;
+  const offset = '0x' + data.offset.toString(16)
+  clone.querySelector('.id').href += offset
+  clone.querySelector('.id').appendChild(document.createTextNode(offset))
+  clone.querySelector('.body').innerHTML = data.html
+  clone.querySelector('.body').querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block)
+  })
 
-  const text = document.createElement('span')
-  text.classList.add('text')
-  text.appendChild(document.createTextNode(data.text))
-  postElement.appendChild(text)
-
-  postsElement.appendChild(postElement)
+  posts.appendChild(clone)
 }

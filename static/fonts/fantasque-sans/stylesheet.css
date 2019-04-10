@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Fantasque Sans Mono';
+    src: url('subset-FantasqueSansMono-Italic.woff2') format('woff2'),
+        url('subset-FantasqueSansMono-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Fantasque Sans Mono';
+    src: url('subset-FantasqueSansMono-BoldItalic.woff2') format('woff2'),
+        url('subset-FantasqueSansMono-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Fantasque Sans Mono';
+    src: url('subset-FantasqueSansMono-Regular.woff2') format('woff2'),
+        url('subset-FantasqueSansMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fantasque Sans Mono';
+    src: url('subset-FantasqueSansMono-Bold.woff2') format('woff2'),
+        url('subset-FantasqueSansMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+

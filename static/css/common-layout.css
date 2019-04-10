@@ -1,0 +1,32 @@
+.common-layout .top {
+  background-color: rgb(var(--bg));
+}
+.common-layout .top .header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.common-layout .top .header .crumb {
+  color: rgb(var(--fg));
+  text-decoration: none;
+}
+.common-layout .top .header .crumb:hover {
+  color: rgb(var(--key));
+}
+
+.common-layout .top .header a.crumb span {
+  color: rgba(var(--fg), .25);
+}
+.common-layout .top .header .datetime {
+  color: rgba(var(--fg), .5);
+}
+
+.common-layout .middle {
+  margin-top: 20px;
+}
+
+.common-layout .top .header .icon {
+  color: rgb(var(--fg));
+}
+.common-layout .top .header .icon.crumb-arrow {
+  opacity: .25;
+}

@@ -1,0 +1,10 @@
+:root {
+  --bg: 26, 26, 26;
+  --fg: 240, 240, 240;
+  --backdrop: 0, 0, 0;
+  --key: 130, 221, 192;
+  --key-fg: var(--backdrop);
+  --contrast: 34, 34, 34;
+  --contrast-fg: var(--fg);
+  --code-bg: 34, 34, 34;
+}

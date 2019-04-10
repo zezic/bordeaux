@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Anka/Coder';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/anka-coder/AnkaCoder-r.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Anka/Coder';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/anka-coder/AnkaCoder-b.ttf') format('truetype');
+}

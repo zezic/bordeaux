@@ -1,0 +1,65 @@
+.index-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.index-layout .top,
+.index-layout .bottom {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.board-list {
+  columns: 12em auto;
+  padding-left: 0;
+  line-height: 2;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.board-list li {
+  list-style: none;
+}
+.board-list li a {
+  color: rgba(var(--fg), .5);
+  font-family: 'Anka/Coder';
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.board-list li a:hover,
+.board-list li a:hover span {
+  color: rgb(var(--key));
+}
+.board-list li a span {
+  color: rgb(var(--fg));
+  display: inline-block;
+  min-width: 2.5em;
+  font-size: 1.2em;
+}
+.index-layout .middle {
+  background-color: rgb(var(--bg));
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+.index-layout .bottom {
+  display: flex;
+  flex-direction: column;
+}
+.index-layout .bottom .new-board-option {
+  margin-top: 40px;
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.index-layout .bottom .new-board-option span {
+  font-family: 'Anka/Coder';
+  color: rgba(var(--fg), .5);
+  font-size: 16px;
+  margin-right: 30px;
+}
+.index-layout .no-boards {
+  text-align: center;
+  font-size: 20px;
+  margin: 1em auto;
+  max-width: 17em;
+}

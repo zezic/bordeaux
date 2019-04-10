@@ -1,0 +1,50 @@
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  color: rgb(var(--fg));
+}
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-section,
+.hljs-addition,
+.hljs-attribute,
+.hljs-link {
+  color: rgba(var(--fg), .5);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: rgba(var(--fg), .25);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-name,
+.hljs-type,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-title {
+  color: rgb(var(--key));
+  font-style: italic;
+}
+.hljs-meta {
+  color: rgba(var(--key), .5);
+}

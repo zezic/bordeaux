@@ -1,0 +1,23 @@
+{% extends 'common.html' %}
+
+{% block header %}
+<div class='cnt'><div class='v-flex'>
+  {% include 'arrow.svg' %}
+</div></div>
+<div class='cnt'><div class='v-flex'>
+  <a href='/{{ board.slug }}' class='crumb'>{{ board.slug }}</a>
+</div></div>
+<div class='cnt'><div class='v-flex'>
+  <a href='/{{ board.slug }}/write' class='link-button contrast'>New Thread</a>
+</div></div>
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+  <div class='board'>
+    {% for thread in threads %}
+      {% include 'thread_preview.html' %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

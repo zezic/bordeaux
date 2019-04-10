@@ -1,0 +1,32 @@
+.thread.preview .latest-posts {
+  display: flex;
+  margin-top: 15px;
+}
+@media screen and (max-width: 480px) {
+  .thread.preview .latest-posts {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .thread.preview .latest-posts .count {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+.thread.preview .latest-posts .count {
+  color: rgba(var(--fg), .5);
+  font-size: 14px;
+  padding-right: 15px;
+}
+.thread.preview .latest-posts .posts {
+  flex-grow: 1;
+}
+.thread .end {
+  text-align: center;
+}
+.thread .end .reload-link {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.thread:not(.preview) .post {
+  margin-bottom: 1.4em;
+}

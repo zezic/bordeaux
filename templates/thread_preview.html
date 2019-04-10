@@ -1,0 +1,27 @@
+<div class='thread preview'>
+  {% set post = thread.posts[0] %}
+  <div class='first-post'>
+    {% include 'post.html' %}
+  </div>
+  {% set replies_count = thread.posts | length - 1 %}
+  {% set to_scrap = [2, replies_count] | min %}
+  {% if replies_count > 0 %}
+    <div class='latest-posts'>
+      {% if replies_count > 2 %}
+        <div class='count'>
+          {{ replies_count - 2 }} replies later...
+        </div>
+      {% endif %}
+      <div class='posts'>
+        {% if to_scrap > 0 %}
+          {% for post in thread.posts[-to_scrap:] %}
+            {% include 'post.html' %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  <div class='end'>
+    <a href='#' class='reload-link'></a>
+  </div>
+</div>

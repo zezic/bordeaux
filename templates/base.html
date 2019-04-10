@@ -6,12 +6,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Bordeaux</title>
     <meta name='description' content='Bordeaux Text Board'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;subset=cyrillic' rel='stylesheet'>
+    <link rel='shortcut icon' type='image/ico' href='{{ url_for("static", path="/favicon.ico")}}'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;subset=cyrillic' rel='stylesheet'>
+    <link rel='stylesheet' href='{{ url_for("static", path="/css/fonts.css") }}'>
+    <link rel='stylesheet' href='{{ url_for("static", path="/fonts/fantasque-sans/stylesheet.css") }}'>
+    {% if request.cookies.get('theme') %}
+      <link rel='stylesheet' href='{{ url_for("static", path="/css/colors-{}.css".format(request.cookies.get("theme"))) }}'>
+    {% else %}
+      <link rel='stylesheet' href='{{ url_for("static", path="/css/colors.css") }}'>
+    {% endif %}
     <link rel='stylesheet' href='{{ url_for("static", path="/css/style.css") }}'>
+    {% block css %}
+    {% endblock %}
   </head>
 
   <body>
-    {% block content %}
+    {% block body %}
     {% endblock %}
   </body>
 

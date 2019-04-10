@@ -3,83 +3,184 @@
 }
 
 html {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f8f8f8;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(var(--backdrop));
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+@media screen and (max-width: 768px) {
+  .container:not(.spacy) {
+    padding: 0 20px;
+  }
 }
 
 .header {
-  background-color: #fff;
-  padding: 20px;
+  font-family: 'Anka/Coder';
+  margin-left: -15px;
+  margin-right: -15px;
+  font-size: 0;
 }
-.welcome-msg {
-  text-align: center;
-  font-size: 16px;
-  margin: 0;
+.header::after {
+  content: ' ';
+  clear: both;
 }
-
-.posts,
-.post-form {
-  margin: 0 auto;
-  width: 800px;
-  max-width: 100%;
+.header > * {
+  display: inline-block;
+  vertical-align: top;
 }
-
-.posts .post {
-  margin: 10px;
-  padding: 12px;
-  font-size: 14px;
-  background-color: #fff;
-  border-radius: 4px;
-}
-.posts .post .time {
-  color: #888;
-  font-style: italic;
-}
-.posts .post .time::after {
-  content: ':';
-}
-.posts .post .text {
-  color: #333;
-}
-
-.post-form {
+.header > * > .v-flex {
   display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgba(0, 0, 0, .1)
-}
-.post-form textarea {
-  margin: 10px;
-  padding: 12px;
-  resize: vertical;
-  border-radius: 4px;
-  border: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50px;
+  margin: 0px 15px;
+  font-size: 16px;
 }
 
-.post-form textarea:focus {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 5px 20px 0 rgba(0, 0, 0, .05);
-}
-
-.post-form button {
-  margin-left: auto;
-  margin-right: 10px;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
+.header .logo {
+  color: rgb(var(--fg));
   font-weight: bold;
-  border: 0;
-  border-radius: 4px;
+  font-size: 26px;
+  text-decoration: none;
+  transform: translateY(1px);
+  line-height: 18px;
+}
+.header .logo:hover {
+  color: rgb(var(--key));
+}
+
+.header .night-mode-cnt {
+  float: right;
+}
+.header .night-mode {
+  color: rgb(var(--fg));
+  text-decoration: none;
   text-transform: uppercase;
-  height: 30px;
-  width: 80px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  background-color: transparent;
+  border: 0;
+  font-family: inherit;
   cursor: pointer;
+  padding: 0;
+}
+.header .night-mode .switch {
+  height: 12px;
+  width: 30px;
+  border-radius: 6px;
+  position: relative;
+  margin-left: 15px;
+}
+.header .night-mode .switch::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  transform: translate(-3px, -6px);
+}
+.header .night-mode .switch,
+.header .night-mode .switch::after {
+  border: 2px solid rgb(var(--fg));
+  background-color: rgb(var(--bg));
+}
+.header .night-mode:hover {
+  color: rgb(var(--key));
+}
+.header .night-mode:hover .switch,
+.header .night-mode:hover .switch::after {
+  border-color: rgb(var(--key));
+}
+@media screen and (max-width: 480px) {
+  .common-layout .top .header .night-mode span {
+    display: none;
+  }
+  .common-layout .header .night-mode .switch {
+    margin-left: 0;
+  }
+}
+
+.reload-link {
+  vertical-align: top;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(var(--fg));
+  border-radius: 50%;
+  display: inline-block;
+}
+.reload-link:hover {
+  background-color: rgba(var(--fg), .8);
+}
+.footer .reload-link {
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 
-.post-form button:hover {
-  background-color: #002D1F;
-  color: #99F3D7;
+.footer {
+  text-align: center;
+}
+.footer .powered-by {
+  font-family: 'Anka/Coder';
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(var(--fg), .5);
+  margin-bottom: 30px;
+}
+.footer .powered-by a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer .powered-by a:hover {
+  text-decoration: underline;
+}
+.link-button {
+  height: 34px;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Anka/Coder';
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  white-space: nowrap;
+  border: 0;
+  cursor: pointer;
+}
+.link-button.contrast {
+  background-color: rgb(var(--contrast));
+  color: rgb(var(--contrast-fg));
+}
+.link-button.contrast:hover {
+  background-color: rgba(var(--contrast), .8);
+}
+.link-button.key {
+  background-color: rgb(var(--key));
+  color: rgb(var(--key-fg));
+}
+.link-button.key:hover {
+  background-color: rgba(var(--key), .8);
+}
+.icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
