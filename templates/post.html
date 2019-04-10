@@ -1,4 +1,4 @@
-<div {% if post %}id='{{ post.offset | hex }}'{% endif %} class='post' data-flip-key='post-{% if post %}{{ post.offset }}{% endif %}'>
+<div {% if post %}id='{{ post.offset | hex }}'{% endif %} class='post' data-flip-key='post-{% if post %}{{ post.offset }}{% endif %}' {% if post %}data-id='{{ post.offset | hex }}'{% endif %}>
   <div class='head'>
     <div class='datetime'>
       {% if post %}
@@ -20,4 +20,5 @@
       {{ post.markdown | markdown | safe }}
     {% endif %}
   </div>
+  <div class='replies'></div>
 </div>

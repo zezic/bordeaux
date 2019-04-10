@@ -16,10 +16,11 @@
 {% endblock %}
 
 {% block subhead %}
-<div id='0x0' class='post'>
+<div id='0x0' class='post' data-id='0x0'>
   <div class='body'>
     {{ thread.posts[0].markdown | markdown | safe }}
   </div>
+  <div class='replies'></div>
 </div>
 {% endblock %}
 

@@ -125,6 +125,25 @@
   border-radius: 5px;
   font-size: 1.1em;
 }
+.post .body .brdx-link {
+  margin-right: .25em;
+}
+
+.post .replies {
+  margin-top: .6em;
+}
+.post .replies .brdx-link {
+  margin-right: .5em;
+  color: rgb(var(--key));
+  text-decoration: none;
+  font-size: .9em;
+}
+.post .replies .brdx-link:hover {
+  text-decoration: underline;
+}
+.post .replies:empty {
+  display: none;
+}
 
 .latest-posts .post {
   font-size: 12px;

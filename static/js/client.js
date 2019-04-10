@@ -44,8 +44,28 @@ function addListeners (post) {
   })
 }
 
+function extractBRDXLinks (post) {
+  const postLink = document.createElement('a')
+  postLink.href = '#' + post.id
+  postLink.dataset.post = post.id
+  postLink.classList.add('brdx-link', 'pst')
+  postLink.innerHTML = '<span>:</span>' + post.id
+  const targetPostIds = []
+  post.querySelectorAll('.brdx-link').forEach((link) => {
+    if (!link.dataset.post) { return }
+    if (link.dataset.thread && link.dataset.thread !== threadSlug) { return }
+    const targetId = link.dataset.post
+    if (targetPostIds.indexOf(targetId) !== -1) { return }
+    const selector = '.post[data-id="' + targetId + '"]'
+    const targetPost = document.querySelectorAll(selector)[0]
+    targetPost.querySelector('.replies').appendChild(postLink)
+    targetPostIds.push(targetId)
+  })
+}
+
 document.querySelectorAll('.thread .post').forEach((post) => {
   addListeners(post)
+  extractBRDXLinks(post)
 })
 
 document.querySelector('.common-layout .header .thread-slug').addEventListener('click', (event) => {
@@ -85,6 +105,7 @@ ws.onmessage = function (event) {
     hljs.highlightBlock(block)
   })
   addListeners(clone.querySelector('.post'))
+  extractBRDXLinks(clone.querySelector('.post'))
 
   posts.appendChild(clone)
 }
