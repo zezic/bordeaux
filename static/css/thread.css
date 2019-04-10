@@ -19,6 +19,7 @@
 }
 .thread.preview .latest-posts .posts {
   flex-grow: 1;
+	overflow-x: hidden;
 }
 .thread .end {
   text-align: center;
