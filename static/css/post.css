@@ -98,13 +98,13 @@
   background-color: rgb(var(--code-bg));
   padding: 1em 1.45em;
   margin: 0;
+  border-radius: 5px;
 }
 .post .body pre:not(:last-child) {
   margin-bottom: 1em;
 }
 .post .body pre code {
   font-family: 'Fantasque Sans Mono';
-  border-radius: 5px;
   font-size: 1.1em;
   line-height: 1.15;
 }

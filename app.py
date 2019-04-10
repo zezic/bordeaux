@@ -20,7 +20,6 @@ from models.post import Post
 
 from db import database, metadata
 
-from boards import boards as random_boards
 from markdown.renderer import render_markdown
 
 
@@ -197,7 +196,10 @@ class ThreadEndpoint(HTTPEndpoint):
             'datetime': format_datetime(post.datetime),
             'html': render_markdown(post.markdown)
         })
-        return RedirectResponseWithBackground(url=request.url, background=task)
+        return RedirectResponseWithBackground(
+            url='{}#{}'.format(str(request.url).split('#')[0], get_hex(post.offset)),
+            background=task
+        )
 
 @app.route('/toggle-theme')
 class ThemeManager(HTTPEndpoint):
