@@ -28,7 +28,7 @@
 .post .head .offset {
   margin-left: auto;
   color: rgba(var(--fg), .5);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .post .head .offset:hover {
   color: rgb(var(--key));
@@ -125,30 +125,80 @@
   border-radius: 5px;
   font-size: 1.1em;
 }
-.post .body .brdx-link {
+.post .body .brdx-link-wrapper {
   margin-right: .25em;
+  position: relative;
+  display: inline-block;
 }
 
 .post .replies {
   margin-top: .6em;
 }
-.post .replies .brdx-link {
+.post .replies > .brdx-link-wrapper {
+  display: inline-block;
+  position: relative;
+}
+.post .replies > .brdx-link-wrapper > .brdx-link {
   margin-right: .5em;
   color: rgb(var(--key));
   text-decoration: none;
   font-size: .9em;
+  position: relative;
 }
-.post .replies .brdx-link:hover {
+.post .replies > .brdx-link:hover {
   text-decoration: underline;
 }
 .post .replies:empty {
   display: none;
+}
+.post .brdx-link-wrapper .post {
+  position: absolute;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  width: 800px;
+  max-width: calc(100vw - 40px);
+  left: 0px;
+  border-radius: 5px;
+}
+body.dark .post .brdx-link-wrapper .post {
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+}
+.post .brdx-link-wrapper .post > .head,
+.post .brdx-link-wrapper .post > .body,
+.post .brdx-link-wrapper .post > .replies {
+  z-index: 1;
+  position: relative;
+}
+.post .brdx-link-wrapper .post > .head:hover,
+.post .brdx-link-wrapper .post > .body:hover,
+.post .brdx-link-wrapper .post > .replies:hover {
+  z-index: 10;
+}
+.post .brdx-link-wrapper .post::before {
+  display: block;
+  position: absolute;
+  content: ' ';
+  left: -10px;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: 0;
+}
+.post .brdx-link-wrapper.expanded {
+  z-index: 10;
+}
+.post .brdx-link-wrapper .post.transparent {
+  opacity: 0;
+}
+.post .brdx-link-wrapper .post.up {
+  bottom: 100%;
+  margin-bottom: 0;
 }
 
 .latest-posts .post {
   font-size: 12px;
 }
 
-.common-layout .top .post {
+.common-layout .top .container > .post {
   padding: 0 0 1.75em;
 }

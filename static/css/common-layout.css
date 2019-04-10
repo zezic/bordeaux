@@ -1,3 +1,6 @@
+.common-layout {
+  overflow: hidden;
+}
 .common-layout .top {
   background-color: rgb(var(--bg));
 }

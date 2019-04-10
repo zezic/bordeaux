@@ -130,16 +130,15 @@ class BordeauxMarkdownInlineLexer(mistune.InlineLexer):
     ]
 
     def output_brdx_brd_trd_pst_link(self, m):
-        print(m)
-        return '<a href="/{0}/{1}#{2}" class="brdx-link brd-trd-pst" data-board="{0}" data-thread="{1}" data-post="{2}">{0}<span>:</span>{1}<span>:</span>{2}</a>'.format(m.group(1), m.group(8), m.group(14))
+        return '<div class="brdx-link-wrapper"><a href="/{0}/{1}#{2}" class="brdx-link brd-trd-pst" data-board="{0}" data-thread="{1}" data-post="{2}">{0}<span>:</span>{1}<span>:</span>{2}</a></div>'.format(m.group(1), m.group(8), m.group(14))
     def output_brdx_trd_pst_link(self, m):
-        return '<a href="/---/{0}#{1}" class="brdx-link trd-pst" data-thread="{0}" data-post="{1}"><span>:</span>{0}<span>:</span>{1}</a>'.format(m.group(1), m.group(7))
+        return '<div class="brdx-link-wrapper"><a href="/---/{0}#{1}" class="brdx-link trd-pst" data-thread="{0}" data-post="{1}"><span>:</span>{0}<span>:</span>{1}</a></div>'.format(m.group(1), m.group(7))
     def output_brdx_brd_trd_link(self, m):
-        return '<a href="/{0}/{1}" class="brdx-link brd-trd" data-board="{0}" data-thread="{1}">{0}<span>:</span>{1}</a>'.format(m.group(1), m.group(8))
+        return '<div class="brdx-link-wrapper"><a href="/{0}/{1}" class="brdx-link brd-trd" data-board="{0}" data-thread="{1}">{0}<span>:</span>{1}</a></div>'.format(m.group(1), m.group(8))
     def output_brdx_trd_link(self, m):
-        return '<a href="/---/{0}" class="brdx-link trd" data-thread="{0}"><span>:</span>{0}</a>'.format(m.group(1))
+        return '<div class="brdx-link-wrapper"><a href="/---/{0}" class="brdx-link trd" data-thread="{0}"><span>:</span>{0}</a></div>'.format(m.group(1))
     def output_brdx_pst_link(self, m):
-        return '<a href="#{0}" class="brdx-link pst" data-post="{0}"><span>:</span>{0}</a>'.format(m.group(1))
+        return '<div class="brdx-link-wrapper"><a href="#{0}" class="brdx-link pst" data-post="{0}"><span>:</span>{0}</a></div>'.format(m.group(1))
 
 
 class BordeauxMarkdownRenderer(mistune.Renderer):

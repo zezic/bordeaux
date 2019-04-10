@@ -21,7 +21,7 @@
     {% endblock %}
   </head>
 
-  <body>
+  <body{% if request.cookies.get('theme') %} class='dark'{% endif %}>
     {% block body %}
     {% endblock %}
   </body>
