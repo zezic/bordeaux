@@ -21,13 +21,26 @@
   flex-grow: 1;
 	overflow-x: hidden;
 }
-.thread .end {
+.thread-end {
   text-align: center;
 }
-.thread .end .reload-link {
+.thread-end .reload-link {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 .thread:not(.preview) .post {
   margin-bottom: 1.4em;
+}
+@media screen and (max-width: 480px) {
+  .container.thread-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .thread:not(.preview) .post {
+    border-radius: 0;
+  }
+  .thread:not(.preview) .post:not(:last-child) {
+    border-bottom: 1px solid rgba(var(--fg), .05);
+    margin-bottom: 0;
+  }
 }

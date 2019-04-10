@@ -25,7 +25,7 @@
 
 {% block content %}
 
-<div class='container'>
+<div class='container thread-wrapper'>
   <div class='thread' data-slug='{{ thread.slug }}'>
     {% set replies_count = thread.posts | length - 1 %}
     {% if replies_count > 0 %}
@@ -35,10 +35,12 @@
         {% endfor %}
       </div>
     {% endif %}
-    {% include 'writer.html' %}
-    <div class='end'>
-      <a href='#' class='reload-link'></a>
-    </div>
+  </div>
+</div>
+<div class='container'>
+  {% include 'writer.html' %}
+  <div class='thread-end'>
+    <a href='#' class='reload-link'></a>
   </div>
 </div>
 

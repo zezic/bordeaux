@@ -36,6 +36,11 @@
 .post .head .id span {
   color: rgba(var(--fg), .25);
 }
+@media screen and (max-width: 480px) {
+  .post .head .id span {
+    display: none;
+  }
+}
 
 .post .body {
   font-size: 1em;

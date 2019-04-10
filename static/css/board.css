@@ -1,2 +1,11 @@
-.board .thread:not(:last-child) {
+@media screen and (max-width: 480px) {
+  .container.board-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .thread.preview .post {
+    margin-bottom: 0;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(var(--fg), .05);
+  }
 }

@@ -12,6 +12,7 @@
     <link rel='stylesheet' href='{{ url_for("static", path="/fonts/fantasque-sans/stylesheet.css") }}'>
     {% if request.cookies.get('theme') %}
       <link rel='stylesheet' href='{{ url_for("static", path="/css/colors-{}.css".format(request.cookies.get("theme"))) }}'>
+			<meta name='theme-color' content='#1a1a1a'>
     {% else %}
       <link rel='stylesheet' href='{{ url_for("static", path="/css/colors.css") }}'>
     {% endif %}

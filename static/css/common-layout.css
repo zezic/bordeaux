@@ -23,6 +23,14 @@
 .common-layout .middle {
   margin-top: 20px;
 }
+@media screen and (max-width: 480px) {
+  .common-layout .top {
+    border-bottom: 1px solid rgba(var(--fg), .125);
+  }
+  .common-layout .middle {
+    margin-top: 0;
+  }
+}
 
 .common-layout .top .header .icon {
   color: rgb(var(--fg));

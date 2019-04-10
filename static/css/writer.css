@@ -22,6 +22,37 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+@media screen and (max-width: 480px) {
+  .writer .operations > * {
+    margin-top: 20px;
+  }
+  .container.board-posting {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .container.board-posting .writer textarea,
+  .container.board-posting .writer input {
+    margin-top: 0;
+    border-radius: 0;
+  }
+  .container.board-posting .writer .new-board input,
+  .container.board-posting .writer .new-board {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .container.board-posting .writer .new-board input {
+    border-bottom: 1px solid rgba(var(--contrast-fg), .1);
+    height: 4em;
+  }
+  .container.board-posting .writer .new-board input[name='title'] {
+    flex-grow: 1;
+  }
+  .container.board-posting .writer .operations {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
 .writer .new-board {
   margin-bottom: 10px;
   font-size: 0;
@@ -46,4 +77,9 @@
 }
 .writer .new-board input[name='title'] {
   min-width: 0;
+}
+.writer textarea:focus,
+.writer .new-board > input:focus {
+  outline-color: transparent;
+  outline-style: none;
 }
