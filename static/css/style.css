@@ -104,6 +104,9 @@ body {
 .header .night-mode:hover .switch::after {
   border-color: rgb(var(--key));
 }
+.header .night-mode.active .switch::after {
+  transform: translate(9px, -6px);
+}
 @media screen and (max-width: 480px) {
   .common-layout .top .header .night-mode span {
     display: none;

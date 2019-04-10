@@ -23,7 +23,7 @@
         </div></div>
         <div class='night-mode-cnt'><div class='v-flex'>
           <form action='/toggle-theme' method='post'>
-            <button type='submit' class='night-mode'><span>Night Mode</span><div class='switch'></div></button>
+            <button type='submit' class='night-mode{% if request.cookies.get('theme') %} active{% endif %}'><span>Night Mode</span><div class='switch'></div></button>
           </form>
         </div></div>
         {% block header %}{% endblock %}
