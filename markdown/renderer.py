@@ -104,6 +104,13 @@ class BordeauxMarkdownInlineGrammar(mistune.InlineGrammar):
     brdx_brd_trd_link = re.compile(r'^{}:{}'.format(BRD, TRD))
     brdx_trd_link = re.compile(r'^:{}'.format(TRD))
     brdx_pst_link = re.compile(r'^:{}'.format(PST))
+    text = re.compile(r'^[\s\S]+?(?=[\\<!\[_*`~]|{}|{}|{}|{}|{}|https?://| {{2,}}\n|$)'.format(
+        '({}:{}:{})'.format(BRD, TRD, PST),
+        '(:?{}:{})'.format(TRD, PST),
+        '({}:{})'.format(BRD, TRD),
+        '(:{})'.format(TRD),
+        '(:{})'.format(PST)
+    ))
 
 
 class BordeauxMarkdownInlineLexer(mistune.InlineLexer):
