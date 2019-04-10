@@ -28,16 +28,16 @@
 <div class='container thread-wrapper'>
   <div class='thread' data-slug='{{ thread.slug }}'>
     {% set replies_count = thread.posts | length - 1 %}
-    {% if replies_count > 0 %}
       <div class='posts'>
-        {% for post in thread.posts[1:] %}
-          {% include 'post.html' %}
-        {% endfor %}
+        {% if replies_count > 0 %}
+          {% for post in thread.posts[1:] %}
+            {% include 'post.html' %}
+          {% endfor %}
+        {% endif %}
         <div class='container writer-wrapper' data-flip-key='writer-wrapper'>
           {% include 'writer.html' %}
         </div>
       </div>
-    {% endif %}
   </div>
 </div>
 <div class='container'>
