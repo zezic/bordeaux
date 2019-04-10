@@ -95,7 +95,7 @@ class BordeauxMarkdownBlockLexer(mistune.BlockLexer):
     )
 
 BRD = '((([0-9a-z]){1,2})|((([0-9a-z][0-9a-wy-z])|([1-9a-z][0-9a-z]))[0-9a-z]{1,2}))'
-TRD = '((([0-9][a-wy-z])|([1-9][a-z])|([a-z]{2})|([0-9]{2}))[0-9a-z]{2})'
+TRD = '((([0-9a-z][0-9a-wy-z])|([1-9a-z][0-9a-z])|([a-z]{2})|([0-9]{2}))[0-9a-z]{2})'
 PST = '(0x[0-9a-f]+)'
 
 class BordeauxMarkdownInlineGrammar(mistune.InlineGrammar):
@@ -132,7 +132,7 @@ class BordeauxMarkdownInlineLexer(mistune.InlineLexer):
     def output_brdx_brd_trd_pst_link(self, m):
         return '<a href="/{0}/{1}#{2}" class="brdx-link brd-trd-pst" data-board="{0}" data-thread="{1}" data-post="{2}">{0}<span>:</span>{1}<span>:</span>{2}</a>'.format(m.group(1), m.group(8), m.group(13))
     def output_brdx_trd_pst_link(self, m):
-        return '<a href="/---/{0}#{1}" class="brdx-link trd-pst" data-thread="{0}" data-post="{1}"><span>:</span>{0}<span>:</span>{1}</a>'.format(m.group(1), m.group(5))
+        return '<a href="/---/{0}#{1}" class="brdx-link trd-pst" data-thread="{0}" data-post="{1}"><span>:</span>{0}<span>:</span>{1}</a>'.format(m.group(1), m.group(7))
     def output_brdx_brd_trd_link(self, m):
         return '<a href="/{0}/{1}" class="brdx-link brd-trd" data-board="{0}" data-thread="{1}">{0}<span>:</span>{1}</a>'.format(m.group(1), m.group(8))
     def output_brdx_trd_link(self, m):
