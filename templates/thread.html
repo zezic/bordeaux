@@ -8,7 +8,7 @@
   <a href='/{{ board.slug }}' class='crumb'>{{ board.slug }}</a>
 </div></div>
 <div class='cnt'><div class='v-flex'>
-  <a href='/{{ board.slug }}/{{ thread.slug }}' class='crumb'><span>:</span>{{ thread.slug }}</a>
+  <a href='/{{ board.slug }}/{{ thread.slug }}' class='crumb thread-slug'><span>:</span>{{ thread.slug }}</a>
 </div></div>
 <div class='cnt'><div class='v-flex'>
   <div class='datetime'>{{ thread.posts[0].datetime | format_datetime }}</div>

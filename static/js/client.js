@@ -20,8 +20,8 @@ function addOffsetQuoteToWriter (offset) {
 
 function placeWriterAfterPost (post) {
   const flipping = new Flipping()
-  const posts = post.parentNode
-  const next = post.nextSibling
+  const posts = post ? post.parentNode : document.querySelector('.thread .posts')
+  const next = post ? post.nextSibling : posts.firstChild
   const writer = document.querySelector('.writer-wrapper')
   if (!next || !next.classList || !next.classList.contains('writer-wrapper')) {
     flipping.read()
@@ -30,7 +30,9 @@ function placeWriterAfterPost (post) {
     flipping.flip()
   }
   const textarea = writer.querySelector('textarea')
-  textarea.focus()
+  setTimeout(() => {
+    textarea.focus()
+  }, 600)
 }
 
 function addListeners (post) {
@@ -44,6 +46,12 @@ function addListeners (post) {
 
 document.querySelectorAll('.thread .post').forEach((post) => {
   addListeners(post)
+})
+
+document.querySelector('.common-layout .header .thread-slug').addEventListener('click', (event) => {
+  event.preventDefault()
+  addOffsetQuoteToWriter('0x0')
+  placeWriterAfterPost(null)
 })
 
 ws.onmessage = function (event) {
