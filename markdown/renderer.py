@@ -95,7 +95,7 @@ class BordeauxMarkdownBlockLexer(mistune.BlockLexer):
     )
 
 BRD = '((([0-9a-z]){1,2})|((([0-9a-z][0-9a-wy-z])|([1-9a-z][0-9a-z]))[0-9a-z]{1,2}))'
-TRD = '((([0-9][a-wy-z])|([1-9][a-z])|([a-z]{2}))[0-9a-z]{2})'
+TRD = '((([0-9][a-wy-z])|([1-9][a-z])|([a-z]{2})|([0-9]{2}))[0-9a-z]{2})'
 PST = '(0x[0-9a-f]+)'
 
 class BordeauxMarkdownInlineGrammar(mistune.InlineGrammar):
