@@ -25,20 +25,23 @@
   margin-right: 20px;
   white-space: nowrap;
 }
-.post .head .id {
+.post .head .offset {
   margin-left: auto;
   color: rgba(var(--fg), .5);
   text-decoration: none;
 }
-.post .head .id:hover {
+.post .head .offset:hover {
   color: rgb(var(--key));
 }
-.post .head .id span {
+.post .head .offset span {
   color: rgba(var(--fg), .25);
 }
 @media screen and (max-width: 480px) {
-  .post .head .id span {
+  .post .head .offset span {
     display: none;
+  }
+  .post:target {
+    box-shadow: inset 2px 0 0 0 rgb(var(--key));
   }
 }
 

@@ -9,7 +9,7 @@ from .board import Board
 THREAD_SLUG_CHARS = set(string.digits + string.ascii_lowercase)
 ALL_THREAD_SLUGS = set(''.join(x) for x in itertools.product(
     set(THREAD_SLUG_CHARS), repeat=4
-))
+) if x[0] != '0' or x[1] != 'x')
 
 class Thread(orm.Model):
     __tablename__ = 'threads'

@@ -94,6 +94,45 @@ class BordeauxMarkdownBlockLexer(mistune.BlockLexer):
         'list_block', 'block_html', 'table', 'paragraph', 'text'
     )
 
+BRD = '((([0-9a-z]){1,2})|((([0-9a-z][0-9a-wy-z])|([1-9a-z][0-9a-z]))[0-9a-z]{1,2}))'
+TRD = '((([0-9][a-wy-z])|([1-9][a-z]))[0-9a-z]{2})'
+PST = '(0x[0-9a-f]+)'
+
+class BordeauxMarkdownInlineGrammar(mistune.InlineGrammar):
+    brdx_brd_trd_pst_link = re.compile(r'^{}:{}:{}'.format(BRD, TRD, PST))
+    brdx_trd_pst_link = re.compile(r'^:?{}:{}'.format(TRD, PST))
+    brdx_brd_trd_link = re.compile(r'^{}:{}'.format(BRD, TRD))
+    brdx_trd_link = re.compile(r'^:{}'.format(TRD))
+    brdx_pst_link = re.compile(r'^:{}'.format(PST))
+
+
+class BordeauxMarkdownInlineLexer(mistune.InlineLexer):
+    grammar_class = BordeauxMarkdownInlineGrammar
+
+    default_rules = [
+        'escape', 'inline_html', 'autolink', 'url',
+        'footnote', 'link', 'reflink', 'nolink',
+        'double_emphasis', 'emphasis', 'code',
+        'linebreak', 'strikethrough',
+        'brdx_brd_trd_pst_link',
+        'brdx_trd_pst_link',
+        'brdx_brd_trd_link',
+        'brdx_trd_link',
+        'brdx_pst_link',
+        'text',
+    ]
+
+    def output_brdx_brd_trd_pst_link(self, m):
+        return '<a href="/{0}/{1}#{2}" class="brdx-link brd-trd-pst" data-board="{0}" data-thread="{1}" data-post="{2}">{0}:{1}:{2}</a>'.format(m.group(1), m.group(8), m.group(12))
+    def output_brdx_trd_pst_link(self, m):
+        return '<a href="/---/{0}#{1}" class="brdx-link trd-pst" data-thread="{0}" data-post="{1}">:{0}:{1}</a>'.format(m.group(1), m.group(2))
+    def output_brdx_brd_trd_link(self, m):
+        return '<a href="/{0}/{1}" class="brdx-link brd-trd" data-board="{0}" data-thread="{1}">{0}:{1}</a>'.format(m.group(1), m.group(2))
+    def output_brdx_trd_link(self, m):
+        return '<a href="/---/{0}" class="brdx-link trd" data-thread="{0}">:{0}</a>'.format(m.group(1))
+    def output_brdx_pst_link(self, m):
+        return '<a href="#{0}" class="brdx-link pst" data-post="{0}">:{0}</a>'.format(m.group(1))
+
 
 class BordeauxMarkdownRenderer(mistune.Renderer):
     def block_quote(self, text):
@@ -105,5 +144,6 @@ class BordeauxMarkdownRenderer(mistune.Renderer):
 
 render_markdown = mistune.Markdown(
     renderer=BordeauxMarkdownRenderer(),
-    block=BordeauxMarkdownBlockLexer(BordeauxMarkdownBlockGrammar())
+    block=BordeauxMarkdownBlockLexer(),
+    inline=BordeauxMarkdownInlineLexer(BordeauxMarkdownRenderer())
 )

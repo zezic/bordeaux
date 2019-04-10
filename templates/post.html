@@ -1,4 +1,4 @@
-<div {% if post %}id='{{ post.offset | hex }}'{% endif %} class='post'>
+<div {% if post %}id='{{ post.offset | hex }}'{% endif %} class='post' data-flip-key='post-{% if post %}{{ post.offset }}{% endif %}'>
   <div class='head'>
     <div class='datetime'>
       {% if post %}
@@ -7,12 +7,12 @@
     </div>
     {% if post %}
       {% if thread.posts.index(post) == 0 %}
-        <a class='id' href='/{{ board.slug }}/{{ thread.slug }}'><span>{{ board.slug }}:</span>{{ thread.slug }}</a>
+        <a class='offset' href='/{{ board.slug }}/{{ thread.slug }}'><span>{{ board.slug }}:</span>{{ thread.slug }}</a>
       {% else %}
-        <a class='id' href='/{{ board.slug }}/{{ thread.slug }}#{{ post.offset | hex }}'><span>{{ board.slug }}:{{ thread.slug }}:</span>{{ post.offset | hex }}</a>
+        <a class='offset' href='/{{ board.slug }}/{{ thread.slug }}#{{ post.offset | hex }}'><span>{{ board.slug }}:{{ thread.slug }}:</span>{{ post.offset | hex }}</a>
       {% endif %}
     {% else %}
-        <a class='id' href='/{{ board.slug }}/{{ thread.slug }}#'><span>{{ board.slug }}:{{ thread.slug }}:</span></a>
+        <a class='offset' href='/{{ board.slug }}/{{ thread.slug }}#'><span>{{ board.slug }}:{{ thread.slug }}:</span></a>
     {% endif %}
   </div>
   <div class='body'>

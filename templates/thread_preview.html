@@ -8,9 +8,9 @@
   {% if replies_count > 0 %}
     <div class='latest-posts'>
       {% if replies_count > 2 %}
-        <div class='count'>
+        <a class='count' href='/{{ board.slug }}/{{ thread.slug }}'>
           {{ replies_count - 2 }} replies later...
-        </div>
+        </a>
       {% endif %}
       <div class='posts'>
         {% if to_scrap > 0 %}

@@ -33,12 +33,14 @@
         {% for post in thread.posts[1:] %}
           {% include 'post.html' %}
         {% endfor %}
+        <div class='container writer-wrapper' data-flip-key='writer-wrapper'>
+          {% include 'writer.html' %}
+        </div>
       </div>
     {% endif %}
   </div>
 </div>
 <div class='container'>
-  {% include 'writer.html' %}
   <div class='thread-end'>
     <a href='#' class='reload-link'></a>
   </div>

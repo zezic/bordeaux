@@ -5,17 +5,23 @@
 @media screen and (max-width: 480px) {
   .thread.preview .latest-posts {
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 0;
   }
   .thread.preview .latest-posts .count {
+    display: block;
     text-align: center;
-    margin-bottom: 10px;
+    padding-top: .9em;
+    padding-bottom: 1em;
   }
 }
 .thread.preview .latest-posts .count {
   color: rgba(var(--fg), .5);
   font-size: 14px;
   padding-right: 15px;
+  text-decoration: none;
+}
+.thread.preview .latest-posts .count:hover {
+  text-decoration: underline;
 }
 .thread.preview .latest-posts .posts {
   flex-grow: 1;
@@ -42,5 +48,14 @@
   .thread:not(.preview) .post:not(:last-child) {
     border-bottom: 1px solid rgba(var(--fg), .05);
     margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 481px) {
+  .thread .posts .container.writer-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .thread .posts .container.writer-wrapper:not(:last-child) {
+    padding-bottom: 20px;
   }
 }
