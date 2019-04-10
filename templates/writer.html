@@ -19,11 +19,21 @@
 </form>
 <script>
   function resizeTextarea(ev) {
-    console.log(ev)
     this.style.height = 'auto'
     this.style.height = this.scrollHeight + 'px'
   }
   var te = document.querySelector('textarea')
+  var form = document.querySelector('form.writer')
   te.addEventListener('input', resizeTextarea)
   te.addEventListener('focus', resizeTextarea)
+  te.addEventListener('keypress', function (event) {
+    const keyCode = event.which ? event.which : event.keyCode
+    if (keyCode === 10 || keyCode == 13 && event.ctrlKey) {
+      event.preventDefault()
+      if (te.value.length > 0) {
+        form.submit()
+      }
+      return false
+    }
+  })
 </script>
