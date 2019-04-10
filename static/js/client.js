@@ -97,7 +97,7 @@ function extractBRDXLinks (post) {
   postLink.innerHTML = '<span>:</span>' + post.id
   postLinkWrp.appendChild(postLink)
   const targetPostIds = []
-  post.querySelectorAll('.brdx-link-wrapper').forEach((linkWrp) => {
+  post.querySelectorAll('.body .brdx-link-wrapper').forEach((linkWrp) => {
     const link = linkWrp.querySelector('a')
     if (!link.dataset.post) { return }
     if (link.dataset.thread && link.dataset.thread !== threadSlug) { return }
