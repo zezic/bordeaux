@@ -5,7 +5,7 @@ function addOffsetQuoteToWriter (offset) {
   const writer = document.querySelector('.writer-wrapper')
   const textarea = writer.querySelector('textarea')
   const value = textarea.value
-  const toAdd = ':' + offset
+  const toAdd = ':' + offset + ' '
 
   // save selection start and end position
   const start = textarea.selectionStart
