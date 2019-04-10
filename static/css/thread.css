@@ -49,6 +49,12 @@
     border-bottom: 1px solid rgba(var(--fg), .05);
     margin-bottom: 0;
   }
+  .thread .posts .container.writer-wrapper {
+    margin-top: 20px;
+  }
+  .thread .posts .container.writer-wrapper:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 @media screen and (min-width: 481px) {
   .thread .posts .container.writer-wrapper {
