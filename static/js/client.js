@@ -54,6 +54,14 @@ document.querySelector('.common-layout .header .thread-slug').addEventListener('
   placeWriterAfterPost(null)
 })
 
+if (document.location.href.indexOf('---') !== -1) {
+  history.replaceState(
+    {},
+    document.title,
+    document.location.href.replace('---', document.querySelector('.board-slug').innerText)
+  )
+}
+
 ws.onmessage = function (event) {
   console.log(event)
   if (!('content' in document.createElement('template'))) {

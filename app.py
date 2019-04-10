@@ -167,12 +167,11 @@ class NewThreadEndpoint(HTTPEndpoint):
 @app.route('/{board_slug}/{thread_slug}')
 class ThreadEndpoint(HTTPEndpoint):
     async def get(self, request):
-        board = await Board.objects.get(slug=request.path_params['board_slug'])
-        thread = await Thread.objects.get(slug=request.path_params['thread_slug'])
+        thread = await Thread.objects.select_related('board').get(slug=request.path_params['thread_slug'])
         thread.posts = await Post.objects.filter(thread=thread).all()
         return templates.TemplateResponse('thread.html', {
             'request': request,
-            'board': board,
+            'board': thread.board,
             'thread': thread
         })
 

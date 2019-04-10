@@ -5,7 +5,7 @@
   {% include 'arrow.svg' %}
 </div></div>
 <div class='cnt'><div class='v-flex'>
-  <a href='/{{ board.slug }}' class='crumb'>{{ board.slug }}</a>
+  <a href='/{{ board.slug }}' class='crumb board-slug'>{{ board.slug }}</a>
 </div></div>
 <div class='cnt'><div class='v-flex'>
   <a href='/{{ board.slug }}/{{ thread.slug }}' class='crumb thread-slug'><span>:</span>{{ thread.slug }}</a>
@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block subhead %}
-<div class='post'>
+<div id='0x0' class='post'>
   <div class='body'>
     {{ thread.posts[0].markdown | markdown | safe }}
   </div>
