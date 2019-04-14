@@ -4,6 +4,9 @@
   padding: 1.4em 1.5em 1.2em;
   font-size: 14px;
 }
+.post .body img {
+  max-width: 100%;
+}
 .post:not(:last-child) {
   margin-bottom: 1em;
 }
