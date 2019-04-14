@@ -105,7 +105,8 @@ function extractBRDXLinks (post) {
     if (targetPostIds.indexOf(targetId) !== -1) { return }
     const selector = '.post[data-id="' + targetId + '"]'
     const targetPost = document.querySelectorAll(selector)[0]
-    targetPost.querySelector('.replies').appendChild(postLinkWrp)
+    const replies = targetPost.querySelector('.replies')
+    replies.appendChild(postLinkWrp.cloneNode(true))
     targetPostIds.push(targetId)
   })
 }
