@@ -79,19 +79,19 @@ class BordeauxMarkdownBlockLexer(mistune.BlockLexer):
     default_rules = [
         'newline', 'hrule', 'block_code', 'fences', 'heading',
         'block_quote',
-        'list_block', 'block_html', 'def_links',
+        'list_block', 'def_links',
         'def_footnotes', 'paragraph', 'text'
     ]
 
     list_rules = (
         'newline', 'block_code', 'fences', 'hrule',
-        'block_quote', 'list_block', 'block_html', 'text',
+        'block_quote', 'list_block', 'text',
     )
 
     footnote_rules = (
         'newline', 'block_code', 'fences', 'heading',
         'nptable', 'hrule', 'block_quote',
-        'list_block', 'block_html', 'table', 'paragraph', 'text'
+        'list_block', 'table', 'paragraph', 'text'
     )
 
 BRD = '((([0-9a-z]){1,2})|((([0-9a-z][0-9a-wy-z])|([1-9a-z][0-9a-z]))[0-9a-z]{1,2}))'
@@ -117,7 +117,7 @@ class BordeauxMarkdownInlineLexer(mistune.InlineLexer):
     grammar_class = BordeauxMarkdownInlineGrammar
 
     default_rules = [
-        'escape', 'inline_html', 'autolink', 'url',
+        'escape', 'autolink', 'url',
         'footnote', 'link', 'reflink', 'nolink',
         'double_emphasis', 'emphasis', 'code',
         'linebreak', 'strikethrough',
