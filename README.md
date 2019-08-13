@@ -22,3 +22,12 @@ pipenv install
 ```bash
 pipenv run python app.py
 ```
+
+## Development
+
+Use [mkcert](https://github.com/FiloSottile/mkcert) to generate the certificates:
+
+```bash
+mkcert -install
+mkcert localhost
+```

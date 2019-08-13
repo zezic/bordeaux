@@ -1,3 +1,4 @@
+import os
 import typing
 import sqlalchemy
 import uvicorn
@@ -235,4 +236,15 @@ class WebSocketNotifier(WebSocketEndpoint):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000, proxy_headers=True)
+    has_local_cert = (
+        os.path.isfile('./localhost.pem') and
+        os.path.isfile('./localhost-key.pem')
+    )
+    if has_local_cert:
+        config = {
+            'ssl_keyfile': './localhost-key.pem',
+            'ssl_certfile': './localhost.pem'
+        }
+    else:
+        config = {}
+    uvicorn.run(app, host='0.0.0.0', port=8000, proxy_headers=True, **config)
