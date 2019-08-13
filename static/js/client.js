@@ -1,5 +1,5 @@
 const threadSlug = document.querySelector('.thread').dataset.slug
-const ws = new WebSocket('ws://' + location.host + '/ws/' + threadSlug)
+const ws = new WebSocket('wss://' + location.host + '/ws/' + threadSlug)
 
 function addOffsetQuoteToWriter (offset) {
   const writer = document.querySelector('.writer-wrapper')
