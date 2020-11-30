@@ -6,7 +6,7 @@ Bordeaux is a zero-configuration textboard written in Python. It's potentially v
 
 ## Requirements
 
-* Python 3.6+
+* Python 3.8
 * [Pipenv](https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv)
 
 ## Clone and install dependencies
