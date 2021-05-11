@@ -14,5 +14,8 @@ class Notifier():
         self.listeners.pop(id(websocket))
 
     async def notify_listeners(self, slug, data):
-        for websocket in self.slugs.get(slug):
+        sockets = self.slugs.get(slug)
+        if sockets is None:
+            return
+        for websocket in sockets:
             await websocket.send_json(data)
