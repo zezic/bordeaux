@@ -20,7 +20,10 @@ pipenv install
 ## Run
 
 ```bash
-pipenv run python app.py
+# deprecated, no websockets:
+# pipenv run python app.py
+
+pipenv run uvicorn app:app
 ```
 
 ## Development

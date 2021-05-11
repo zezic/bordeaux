@@ -9,7 +9,7 @@ jedi = "*"
 
 [packages]
 starlette = "*"
-uvicorn = "*"
+"uvicorn[standard]" = "*"
 jinja2 = "*"
 aiofiles = "*"
 python-multipart = "*"
