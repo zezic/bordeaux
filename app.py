@@ -213,7 +213,10 @@ class ThreadEndpoint(HTTPEndpoint):
 @app.route('/toggle-theme')
 class ThemeManager(HTTPEndpoint):
     async def post(self, request):
-        response = RedirectResponse(url=request.headers['referer'])
+        response = RedirectResponse(
+            url=request.headers['referer'],
+            status_code=303
+        )
         if request.cookies.get('theme'):
             response.delete_cookie('theme')
         else:
