@@ -1,2 +1,4 @@
 db.sqlite
 tags
+localhost.pem
+localhost-key.pem
